@@ -33,11 +33,14 @@ jobs:
           # npm i -g gatsby-cli
           # gatsby build --prefix-paths
           mkdir ./public
-          cp -r ./public ../docs
-          git branch -d docs
-          git branch docs
-          git checkout docs
-          git add *
-          git commit -m "build"
-          git push origin docs
+          # cp -r ./public ../docs
           echo test, and deploy your project.
+      - name: Deploy
+          uses: s0/git-publish-subdir-action@develop
+          env:
+            REPO: self
+            BRANCH: build # The branch name where you want to push the assets
+            FOLDER: ./public # The directory where your assets are generated
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+            MESSAGE: "Build: ({sha}) {msg}" # The commit message
+          
