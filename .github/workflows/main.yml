@@ -30,4 +30,5 @@ jobs:
         run: |
           cd ./docs-src
           npm install
+          npm i -g gatsby-cli
           echo test, and deploy your project.
