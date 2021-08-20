@@ -35,7 +35,8 @@ jobs:
           cp -r ./public ../docs
           git branch -d docs
           git branch docs
+          git checkout docs
           git add *
           git commit -m "build"
-          git push
+          git push origin docs
           echo test, and deploy your project.
