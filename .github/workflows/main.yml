@@ -32,4 +32,10 @@ jobs:
           npm install
           npm i -g gatsby-cli
           gatsby build --prefix-paths
+          cp -r ./public ../docs
+          git branch -d docs
+          git branch docs
+          git add *
+          git commit -m "build"
+          git push
           echo test, and deploy your project.
