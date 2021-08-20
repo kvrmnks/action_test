@@ -29,9 +29,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           cd ./docs-src
-          npm install
-          npm i -g gatsby-cli
-          gatsby build --prefix-paths
+          # npm install
+          # npm i -g gatsby-cli
+          # gatsby build --prefix-paths
+          mkdir ./public
           cp -r ./public ../docs
           git branch -d docs
           git branch docs
